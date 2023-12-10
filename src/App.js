@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Advertisements from "./components/Advertisements";
+import Header from "./Header";
 
-function App() {
+const App=()=>{
+  const headerText = "Fast Food Menu";
+  const advertisementsData = [
+    { 
+      image: "burger1.jpg",
+      title: "Burger",
+      description: "Delicious Burger with nutritious fillings",
+      cost : "sek 79.55",
+      
+    },
+    { image: "burger1.jpg",
+      title: "Pizza",
+      description: "Traditional Pizza with extra toppings",
+      cost : "sek 150.55",
+    },
+    { image: "burger1.jpg",
+      title: "Fries",
+      description: "Crispy potato fries",
+      cost : "sek 50.50",
+    }
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div>
+    <Header text={headerText} bgColor="danger" />
+    <div className="container">
+       <Advertisements list={advertisementsData} />
     </div>
+    
+    <Header />
+  </div>
   );
 }
 
