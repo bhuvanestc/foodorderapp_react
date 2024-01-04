@@ -1,7 +1,14 @@
 import React from 'react';
 import {useCart} from "react-use-cart";
+import { useTheme } from '../ThemeContext';
 
 const Cart = () => {
+    const { theme } = useTheme();
+
+    const cartStyle = {
+        backgroundColor: theme === 'dark' ? '#444' : '#fff',
+        color: theme === 'dark' ? '#fff' : '#333'
+      };
     
     const{
         isEmpty,
@@ -15,7 +22,8 @@ const Cart = () => {
     }=useCart();
     if(isEmpty)return <h1 className="text-center">Your Cart is Empty</h1>
     return (
-        <section className="py-4 containeer">
+     
+        <section className="py-4 containeer"style={cartStyle}>
         <div className="row justify-content-center">
             <div className="col-12">
                 <h5>Cart({totalUniqueItems})Total Items:({totalItems})</h5>
@@ -58,6 +66,7 @@ const Cart = () => {
            
             </div>
         </section>
+         
     );
 };
 
